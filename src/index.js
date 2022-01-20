@@ -4,7 +4,6 @@ const fetch = require('node-fetch');
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
-
   type Author {
     id: Int
     firstName: String
@@ -43,11 +42,11 @@ const resolvers = {
       })
     },
     getFortuneCookie: async () => {
-    const api = 'https://catfact.ninja/fact'
-    const resp = await fetch(api);
-      const content = await resp.json();
-      return content.fact;
-  }
+      const api = 'https://catfact.ninja/fact'
+      const resp = await fetch(api);
+        const content = await resp.json();
+        return content.fact;
+    }
   },
   Author: {
     posts: (root, args, context) => {
@@ -71,7 +70,6 @@ const resolvers = {
       return root.getAuthor();
     }
   },
-  
 };
 
 const server = new ApolloServer({
